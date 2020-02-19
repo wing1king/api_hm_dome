@@ -1,0 +1,14 @@
+{
+  "collect001": {
+                "url":"http://119.29.1.133/app/book/collect",
+                "book_id": 70648311677614,
+                "type":0,
+                "msg": "success",
+                "status_code": 200},
+  "collect002": {
+                "url":"http://119.29.1.133/app/book/collect",
+                "book_id": 70648311677614,
+                "type":1,
+                "msg": "success",
+                "status_code": 200}
+}
