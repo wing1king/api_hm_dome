@@ -35,10 +35,10 @@ class TestLogin(unittest.TestCase):
         print("查看响应信息", res.json())
 
         # 断言响应信息
-        self.assertEquals(msg, res.json()["msg"])
+        self.assertEqual(msg, res.json()["msg"])
         #
         # # 断言响应状态码
-        self.assertEquals(status_code, res.status_code)
+        self.assertEqual(status_code, res.status_code)
 
 
 if __name__ == "__main__":
