@@ -11,31 +11,61 @@ from tools.read_json import ReadJson
 
 # 读取数据函数
 def get_data():
-    datas = ReadJson("collect_more.json").read_json()
+    data = ReadJson("collect_more.json").read_json()
     arrs = []
     # 使用遍历获取所有value
-    for data in datas.values():
-        arrs.append((data.get("url"),
-                     data.get("book_id"),
-                     data.get("type"),
-                     data.get("msg"),
-                     data.get("status_code")
+    arrs.append((data.get("url"),
+                 data.get("headers"),
+                 data.get("data"),
+                 data.get("msg"),
+                 data.get("status_code")
+                     ))
+    return arrs
+
+
+def get_qx_data():
+    data = ReadJson("collect_more1.json").read_json()
+    arrs = []
+    # 使用遍历获取所有value
+    arrs.append((data.get("url"),
+                 data.get("headers"),
+                 data.get("data"),
+                 data.get("msg"),
+                 data.get("status_code")
                      ))
     return arrs
 
 
 # 新建测试类
-class TestLogin(unittest.TestCase):
+class TestCollect(unittest.TestCase):
+    """收藏/取消收藏作品"""
 
     # 新建测试方法
+    """收藏作品"""
     @parameterized.expand(get_data())
-    def test_login(self, url, book_id, type, msg, status_code):
-        res = ApiCollect().api_post_collect(url, book_id, type)
+    def test01_collect(self, url, headers, data, msg, status_code):
+
+        res = ApiCollect().api_post_collect(url, headers, data)
+
         print("查看响应信息", res.json())
 
         # 断言响应信息
         self.assertEqual(msg, res.json()["msg"])
-        #
+
+        # # 断言响应状态码
+        self.assertEqual(status_code, res.status_code)
+
+    """取消收藏作品"""
+    @parameterized.expand(get_qx_data())
+    def test02_collect(self, url, headers, data, msg, status_code):
+
+        res = ApiCollect().api_post_collect(url, headers, data)
+
+        print("查看响应信息", res.json())
+
+        # 断言响应信息
+        self.assertEqual(msg, res.json()["msg"])
+
         # # 断言响应状态码
         self.assertEqual(status_code, res.status_code)
 

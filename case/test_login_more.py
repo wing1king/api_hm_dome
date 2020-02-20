@@ -6,7 +6,7 @@
 import unittest
 from api.api_login import ApiLogin
 from parameterized import parameterized
-from tools.read_json import ReadJson
+from tools.read_json_more import ReadJson
 
 
 # 读取数据函数
@@ -16,9 +16,8 @@ def get_data():
     # 使用遍历获取所有value
     for data in datas.values():
         arrs.append((data.get("url"),
-                     data.get("openid"),
-                     data.get("uid"),
-                     data.get("sessionid"),
+                     data.get("headers"),
+                     data.get("data"),
                      data.get("msg"),
                      data.get("status_code")
                      ))
@@ -27,11 +26,13 @@ def get_data():
 
 # 新建测试类
 class TestLogin(unittest.TestCase):
+    """批量登陆"""
 
     # 新建测试方法
     @parameterized.expand(get_data())
-    def test_login(self, url, openid, uid, sessionid, msg, status_code):
-        res = ApiLogin().api_post_login(url, openid, uid, sessionid)
+    # 传参顺序应和上面保持一致
+    def test_login(self, url, headers, data, msg, status_code):
+        res = ApiLogin().api_post_login(url, headers, data)
         print("查看响应信息", res.json())
 
         # 断言响应信息

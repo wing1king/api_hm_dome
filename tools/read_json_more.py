@@ -17,7 +17,7 @@ import json
 class ReadJson(object):
 
     def __init__(self, filename):
-        self.filepath = "../data/" + filename
+        self.filepath = r"D:\apiAutoTestHmtt\data\\" + filename
 
     def read_json(self):
         with open(self.filepath, encoding="utf-8") as f:
@@ -44,6 +44,7 @@ if __name__ == '__main__':
     # 使用遍历获取所有value
     for data in datas.values():
         arrs.append((data.get("url"),
+                     data.get("headers"),
                      data.get("openid"),
                      data.get("uid"),
                      data.get("sessionid"),

@@ -1,8 +1,9 @@
 
 {
   "url":"http://119.29.1.133/app/user/login",
-  "openid":"164b4571e4542ca8f2cc19776f7fd2f211111",
-  "uid":99999999999,
-  "sessionid": "a9d384dd8ca7a22ec38505ddaf03eb6605b6a62661",
+  "headers": {"Content-Type": "application/json"},
+  "data": {   "openid":"164b4571e4542ca8f2cc19776f7fd2f211111",
+              "uid":99999999999,
+              "sessionid": "a9d384dd8ca7a22ec38505ddaf03eb6605b6a62661"},
   "msg": "success",
   "status_code": 200}

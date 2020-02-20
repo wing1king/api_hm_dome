@@ -14,9 +14,8 @@ def get_data():
     data = ReadJson("login.json").read_json()
     arrs = []
     arrs.append((data.get("url"),
-                 data.get("openid"),
-                 data.get("uid"),
-                 data.get("sessionid"),
+                 data.get("headers"),
+                 data.get("data"),
                  data.get("msg"),
                  data.get("status_code")
                  ))
@@ -25,11 +24,12 @@ def get_data():
 
 # 新建测试类
 class TestLogin(unittest.TestCase):
+    """登陆"""
 
     # 新建测试方法
     @parameterized.expand(get_data())
-    def test_login(self, url, openid, uid, sessionid, msg, status_code):
-        res = ApiLogin().api_post_login(url, openid, uid, sessionid)
+    def test_login(self, url, headers, data, msg, status_code):
+        res = ApiLogin().api_post_login(url, headers, data)
         print("查看响应信息", res.json())
         # 断言响应信息
         self.assertEqual(msg, res.json()["msg"])

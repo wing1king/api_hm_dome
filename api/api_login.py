@@ -9,11 +9,10 @@ import requests
 # 新建类  登陆接口对象
 class ApiLogin(object):
     # 新建方法 登陆方法
-    def api_post_login(self, url, openid, uid, sessionid):
+    def api_post_login(self, url, headers, data):
         # headers 定义
-        headers = {"Content-Type": "application/json"}
+        #  headers = {"Content-Type": "application/json"}
         # data 定义
-        data = {"openid": openid, "uid": uid, "sessionid": sessionid}
         # 调用post并返回响应结果
         return requests.post(url, headers=headers, json=data)
 
