@@ -6,7 +6,10 @@
 """
 import unittest
 import time
+import tools.read_email
+import os
 from tools.HTMLTestRunner import HTMLTestRunner
+
 # 第一步1；组装测试套件
 suite = unittest.defaultTestLoader.discover("./case", pattern="test*.py")
 # 第二步： 指定报告存放路径及文件名称
@@ -14,6 +17,17 @@ file_path = "./report/{}.html".format(time.strftime("%Y_%m_%d %H_%M_%S"))
 # 第三步： 运行测试套件并生成报告
 with open(file_path, "wb") as f:
     HTMLTestRunner(stream=f).run(suite)
+
+time.sleep(60)
+
+work_path = "/api_hm_dome/report"
+# 判断是否生成测试报告
+if not os.listdir(work_path):
+    print("还未生成测试报告")
+else:
+    email = tools.read_email.send_eamil()
+    print(email)
+
 
 # import sys
 # import time

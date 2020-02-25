@@ -17,7 +17,7 @@ import json
 class ReadJson(object):
 
     def __init__(self, filename):
-        self.filepath = "/riro_api/data/" + filename
+        self.filepath = "/api_hm_dome/data/" + filename
 
     def read_json(self):
         with open(self.filepath, encoding="utf-8") as f:
