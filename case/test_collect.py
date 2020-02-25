@@ -15,7 +15,6 @@ def get_data():
     arrs = []
     # 使用遍历获取所有value
     arrs.append((data.get("url"),
-                 data.get("headers"),
                  data.get("data"),
                  data.get("msg"),
                  data.get("status_code")
@@ -28,7 +27,6 @@ def get_qx_data():
     arrs = []
     # 使用遍历获取所有value
     arrs.append((data.get("url"),
-                 data.get("headers"),
                  data.get("data"),
                  data.get("msg"),
                  data.get("status_code")
@@ -43,9 +41,9 @@ class TestCollect(unittest.TestCase):
     # 新建测试方法
     """收藏作品"""
     @parameterized.expand(get_data())
-    def test01_collect(self, url, headers, data, msg, status_code):
+    def test01_collect(self, url, data, msg, status_code):
 
-        res = ApiCollect().api_post_collect(url, headers, data)
+        res = ApiCollect().api_post_collect(url, data)
 
         print("查看响应信息", res.json())
 
@@ -57,9 +55,9 @@ class TestCollect(unittest.TestCase):
 
     """取消收藏作品"""
     @parameterized.expand(get_qx_data())
-    def test02_collect(self, url, headers, data, msg, status_code):
+    def test02_collect(self, url, data, msg, status_code):
 
-        res = ApiCollect().api_post_collect(url, headers, data)
+        res = ApiCollect().api_post_collect(url, data)
 
         print("查看响应信息", res.json())
 

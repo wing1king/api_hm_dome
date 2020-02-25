@@ -37,7 +37,7 @@ class TestLogin(unittest.TestCase):
 
         # 断言响应信息
         self.assertEqual(msg, res.json()["msg"])
-        #
+
         # # 断言响应状态码
         self.assertEqual(status_code, res.status_code)
 
