@@ -18,15 +18,17 @@ file_path = "./report/{}.html".format(time.strftime("%Y_%m_%d %H_%M_%S"))
 with open(file_path, "wb") as f:
     HTMLTestRunner(stream=f).run(suite)
 
-time.sleep(60)
 
-work_path = "/api_hm_dome/report"
-# 判断是否生成测试报告
-if not os.listdir(work_path):
-    print("还未生成测试报告")
-else:
-    email = tools.read_email.send_eamil()
-    print(email)
+# 发送邮件
+# time.sleep(60)
+#
+# work_path = "/api_hm_dome/report"
+# # 判断是否生成测试报告
+# if not os.listdir(work_path):
+#     print("还未生成测试报告")
+# else:
+#     email = tools.read_email.send_eamil()
+#     print(email)
 
 
 # import sys
