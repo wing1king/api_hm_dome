@@ -1,7 +1,5 @@
 {
-  "url":"http://119.29.1.133/app/book/collect",
-  "headers": {"Content-Type": "application/json",
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6ImtpZC1oZWFkZXIiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE1ODQ3MTUyNDMsInVpZCI6OTk5OTk5OTk5OTl9.pHBrYYG01_3Zfz3122WoXZSscbvPX-oG_1JzNkgXNzQ"},
+  "path":"/app/book/collect",
   "data": {  "book_id": 70648311677614, "type": 1},
   "msg": "success",
   "status_code": 200}

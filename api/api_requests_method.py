@@ -4,17 +4,18 @@
 
 # 导包 requests
 import requests
+url = "http://test-riko-xms.uu.cc"
 
 
 # 新建类  登陆接口对象
 class ApiLogin(object):
     # 新建方法 登陆方法
-    def api_post_login(self, url, headers, data):
+    def api_post(self, path, headers, data):
         # headers 定义
         #  headers = {"Content-Type": "application/json"}
         # data 定义
         # 调用post并返回响应结果
-        return requests.post(url, headers=headers, json=data)
+        return requests.post(url=url+path, headers=headers, json=data)
 
 
 """

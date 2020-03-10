@@ -1,5 +1,5 @@
 {
-  "url":"http://119.29.1.133/app/book/collect",
+  "path":"/app/book/collect",
   "data": {  "book_id": 70648311677614, "type": 1},
   "msg": "success",
   "status_code": 200}
