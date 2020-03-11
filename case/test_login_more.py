@@ -4,7 +4,7 @@
 
 # 导包 unittest ApiLogin
 import unittest
-from api.api_collect import ApiCollect
+from api.api_res import ApiRes
 from parameterized import parameterized
 from tools.read_json_more import ReadJson
 
@@ -31,7 +31,7 @@ class TestLogin(unittest.TestCase):
     @parameterized.expand(get_data())
     # 传参顺序应和上面保持一致
     def test_login(self, path, data, msg, status_code):
-        res = ApiCollect().api_post(path, data)
+        res = ApiRes().api_post(path, data)
         print("查看响应信息", res.json())
 
         # 断言响应信息

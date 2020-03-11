@@ -4,7 +4,7 @@
 
 # 导包 unittest ApiLogin
 import unittest
-from api.api_collect import ApiCollect
+from api.api_res import ApiRes
 from parameterized import parameterized
 from tools.read_json import ReadJson
 
@@ -43,7 +43,7 @@ class TestCollect(unittest.TestCase):
     @parameterized.expand(get_data())
     def test01_collect(self, path, data, msg, status_code):
 
-        res = ApiCollect().api_post(path, data)
+        res = ApiRes().api_post(path, data)
 
         print("查看响应信息", res.json())
 
@@ -57,7 +57,7 @@ class TestCollect(unittest.TestCase):
     @parameterized.expand(get_qx_data())
     def test02_collect(self, path, data, msg, status_code):
 
-        res = ApiCollect().api_post(path, data)
+        res = ApiRes().api_post(path, data)
 
         print("查看响应信息", res.json())
 
