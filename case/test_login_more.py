@@ -25,7 +25,7 @@ def get_data():
 
 # 新建测试类
 class TestLogin(unittest.TestCase):
-    """批量登陆"""
+    """批量登陆11111"""
 
     # 新建测试方法
     @parameterized.expand(get_data())
