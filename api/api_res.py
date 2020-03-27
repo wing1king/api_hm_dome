@@ -8,21 +8,19 @@ def get_token():
     return "Bearer " + res.json()['data']['token']
 
 
+header = {
+    "Content-Type": "application/json",
+    "Authorization": get_token()
+}
+
+
 class ApiRes(object):
 
     def api_post(self, path, data):
-        headers = {
-                            "Content-Type": "application/json",
-                            "Authorization": get_token()
-                        }
-        return requests.post(url=url+path, headers=headers, json=data)
+        return requests.post(url=url+path, headers=header, json=data)
 
     def api_get(self, path, data):
-        headers = {
-                            "Content-Type": "application/json",
-                            "Authorization": get_token()
-                        }
-        return requests.get(url=url+path, headers=headers, params=data)
+        return requests.get(url=url+path, headers=header, params=data)
 
 
 if __name__ == '__main__':
