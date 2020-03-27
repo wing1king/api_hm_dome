@@ -26,5 +26,5 @@ class ApiRes(object):
 
 
 if __name__ == '__main__':
-    res = ApiCollect().api_post('/app/user/generate-token', {"user_id": 2377317731})
+    res = ApiRes().api_post('/app/user/generate-token', {"user_id": 2377317731})
     print(res.json())
