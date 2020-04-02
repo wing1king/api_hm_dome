@@ -1,4 +1,5 @@
 import requests
+
 url = "http://test-riko-xms.uu.cc"
 
 
@@ -8,21 +9,17 @@ def get_token():
     return "Bearer " + res.json()['data']['token']
 
 
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": get_token()
-}
+def Header():
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": get_token()
+    }
+    return headers
 
 
-class ApiRes(object):
-
-    def api_post(self, path, data):
-        return requests.post(url=url+path, headers=headers, json=data)
-
-    def api_get(self, path, data):
-        return requests.get(url=url+path, headers=headers, params=data)
+def api_post(path, data):
+    return requests.post(url=url + path, headers=Header(), json=data)
 
 
-if __name__ == '__main__':
-    res = ApiRes.api_post("/app/user/generate-token", {"user_id": 2377317731})
-    print(res.json())
+def api_get(path, data):
+    return requests.get(url=url + path, headers=Header(), params=data)
