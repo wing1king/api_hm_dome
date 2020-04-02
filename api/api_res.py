@@ -8,23 +8,21 @@ def get_token():
     return "Bearer " + res.json()['data']['token']
 
 
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": get_token()
+}
+
+
 class ApiRes(object):
 
     def api_post(self, path, data):
-        headers = {
-                            "Content-Type": "application/json",
-                            "Authorization": get_token()
-                        }
         return requests.post(url=url+path, headers=headers, json=data)
 
     def api_get(self, path, data):
-        headers = {
-                            "Content-Type": "application/json",
-                            "Authorization": get_token()
-                        }
         return requests.get(url=url+path, headers=headers, params=data)
 
 
 if __name__ == '__main__':
-    res = ApiRes.api_post('/app/user/generate-token', {"user_id": 2377317731})
+    res = ApiRes.api_post("/app/user/generate-token", {"user_id": 2377317731})
     print(res.json())

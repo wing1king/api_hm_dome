@@ -11,16 +11,16 @@ from tools.read_json_more import ReadJson
 
 # 读取数据函数
 def get_data():
-    datas = ReadJson("login_more.json").read_json()
-    arrs = []
+    data = ReadJson("login_more.json").read_json()
+    airs = []
     # 使用遍历获取所有value
-    for data in datas.values():
-        arrs.append((data.get("path"),
+    for data in data.values():
+        airs.append((data.get("path"),
                      data.get("data"),
                      data.get("msg"),
                      data.get("status_code")
                      ))
-    return arrs
+    return airs
 
 
 # 新建测试类

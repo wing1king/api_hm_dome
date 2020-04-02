@@ -12,13 +12,12 @@ from tools.read_json import ReadJson
 # 读取数据函数
 def get_data():
     data = ReadJson("login.json").read_json()
-    arrs = []
-    arrs.append((data.get("path"),
-                 data.get("data"),
-                 data.get("msg"),
-                 data.get("status_code")
-                 ))
-    return arrs
+    airs = [(data.get("path"),
+             data.get("data"),
+             data.get("msg"),
+             data.get("status_code")
+             )]
+    return airs
 
 
 # 新建测试类

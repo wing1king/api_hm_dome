@@ -12,26 +12,24 @@ from tools.read_json import ReadJson
 # 读取数据函数
 def get_data():
     data = ReadJson("collect_more.json").read_json()
-    arrs = []
+    airs = [(data.get("path"),
+             data.get("data"),
+             data.get("msg"),
+             data.get("status_code")
+             )]
     # 使用遍历获取所有value
-    arrs.append((data.get("path"),
-                 data.get("data"),
-                 data.get("msg"),
-                 data.get("status_code")
-                     ))
-    return arrs
+    return airs
 
 
 def get_qx_data():
     data = ReadJson("collect_more1.json").read_json()
-    arrs = []
+    airs = [(data.get("path"),
+             data.get("data"),
+             data.get("msg"),
+             data.get("status_code")
+             )]
     # 使用遍历获取所有value
-    arrs.append((data.get("path"),
-                 data.get("data"),
-                 data.get("msg"),
-                 data.get("status_code")
-                     ))
-    return arrs
+    return airs
 
 
 # 新建测试类
