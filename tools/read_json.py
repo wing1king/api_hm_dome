@@ -17,10 +17,10 @@ import json
 class ReadJson(object):
 
     def __init__(self, filename):
-        self.filepath = "/api_hm_dome/data/" + filename
+        self.filePath = "/api_hm_dome/data/" + filename
 
     def read_json(self):
-        with open(self.filepath, encoding="utf-8") as f:
+        with open(self.filePath, encoding="utf-8") as f:
             # 调用load方法加载文件流
             return json.load(f)
 
@@ -39,8 +39,8 @@ class ReadJson(object):
 if __name__ == '__main__':
     ReadJson("login.json").read_json()
     # data = ReadJson("login.json").read_json()
-    # arrs = []
-    # arrs.append((data.get("url"),
+    # ars = []
+    # ars.append((data.get("url"),
     #              data.get("openid"),
     #              data.get("uid"),
     #              data.get("sessionid"),
