@@ -1,0 +1,23 @@
+import unittest
+from api.api_res import *
+from ddt import ddt, file_data
+
+
+@ddt
+class TestBrand(unittest.TestCase):
+    """门店经营品牌"""
+
+    @file_data(r"F:\Gqsm_Dcc_Api\data\01_public\test_01.json")
+    def test_case(self, path, data, msg, code):
+        """正常数据"""
+        res = api_get(path, data)
+        print("查看响应信息", res.json())
+        self.assertEqual(msg, res.json()["msg"])
+        self.assertEqual(code, res.json()["code"])
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
