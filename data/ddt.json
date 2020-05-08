@@ -1,0 +1,9 @@
+{
+  "test_case1": {
+    "path": "/business/common/defeat-status-list",
+    "data": {
+    },
+    "msg": "ok",
+    "code": 200
+  }
+}
